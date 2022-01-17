@@ -25,7 +25,7 @@ function writeToLog(
 ) {
   const entry = {
     operation: operationIdentifier,
-    PrevResult: prevResult,
+    prevResult: prevResult,
     number: numberEnteredByUser,
     output: finalResult,
   };
