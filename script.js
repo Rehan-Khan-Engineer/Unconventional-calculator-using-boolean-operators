@@ -2,7 +2,7 @@ let defaultResult = 0;
 
 let currentResult = defaultResult;
 
-let logEntries = [];
+let entries = [];
 
 function getUserInput() {
   return parseInt(userInput.value);
@@ -10,8 +10,8 @@ function getUserInput() {
 
 // the description & result output of calculation
 
-function createOutput(numberBeforeCalc, operator, calcNumber) {
-  const calcDescription = `${numberBeforeCalc} ${operator} ${calcNumber}`;
+function createOutput(prevResult, operator, calcNumber) {
+  const calcDescription = `${prevResult} ${operator} ${calcNumber}`;
   outputResult(currentResult, calcDescription);
 }
 
@@ -23,20 +23,20 @@ function writeToLog(
   numberEnteredByUser,
   finalResult
 ) {
-  const logEntry = {
+  const entry = {
     operation: operationIdentifier,
     PrevResult: prevResult,
     number: numberEnteredByUser,
     output: finalResult,
   };
 
-  logEntries.push(logEntry);
-  console.log(logEntries);
+  entries.push(entry);
+  console.log(entries);
 }
 
 // using if statement instead of seperate functions
 
-function calculationResult(calculationType) {
+function calculateResult(calculationType) {
   const enteredNumber = getUserInput();
 
   if (
@@ -70,26 +70,26 @@ function calculationResult(calculationType) {
   writeToLog(calculationType, initialResult, enteredNumber, currentResult);
 }
 
-function addition() {
-  calculationResult("addition");
+function add() {
+  calculateResult("addition");
 }
 
-function subtraction() {
-  calculationResult("subtraction");
+function subtract() {
+  calculateResult("subtraction");
 }
 
-function multiplication() {
-  calculationResult("multiplication");
+function multiply() {
+  calculateResult("multiplication");
 }
 
-function division() {
-  calculationResult("division");
+function divide() {
+  calculateResult("division");
 }
 
-addBtn.addEventListener("click", addition);
+addBtn.addEventListener("click", add);
 
-subtractBtn.addEventListener("click", subtraction);
+subtractBtn.addEventListener("click", subtract);
 
-multiplyBtn.addEventListener("click", multiplication);
+multiplyBtn.addEventListener("click", multiply);
 
-divideBtn.addEventListener("click", division);
+divideBtn.addEventListener("click", divide);
