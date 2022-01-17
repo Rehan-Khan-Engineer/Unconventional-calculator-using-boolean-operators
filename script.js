@@ -37,12 +37,14 @@ function writeToLog(
 // using if statement instead of seperate functions
 
 function calculationResult(calculationType) {
+  const enteredNumber = getUserInput();
+
   if (
     (calculationType !== "addition" &&
       calculationType !== "subtraction" &&
       calculationType !== "multiplication" &&
       calculationType !== "division") ||
-    getUserInput() === 0
+    enteredNumber === 0
   ) {
     return;
   }
@@ -51,21 +53,21 @@ function calculationResult(calculationType) {
   let mathOperator;
 
   if (calculationType === "addition") {
-    currentResult = currentResult + getUserInput();
+    currentResult = currentResult + enteredNumber;
     mathOperator = "+";
   } else if (calculationType === "subtraction") {
-    currentResult = currentResult - getUserInput();
+    currentResult = currentResult - enteredNumber;
     mathOperator = "-";
   } else if (calculationType === "multiplication") {
-    currentResult = currentResult * getUserInput();
+    currentResult = currentResult * enteredNumber;
     mathOperator = "*";
   } else if (calculationType === "division") {
-    currentResult = currentResult / getUserInput();
+    currentResult = currentResult / enteredNumber;
     mathOperator = "/";
   }
 
-  createOutput(initialResult, mathOperator, getUserInput());
-  writeToLog(calculationType, initialResult, getUserInput(), currentResult);
+  createOutput(initialResult, mathOperator, enteredNumber);
+  writeToLog(calculationType, initialResult, enteredNumber, currentResult);
 }
 
 function addition() {
