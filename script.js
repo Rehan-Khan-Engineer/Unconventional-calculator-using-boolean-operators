@@ -44,7 +44,7 @@ function calculateResult(calculationType) {
       calculationType !== "subtraction" &&
       calculationType !== "multiplication" &&
       calculationType !== "division") ||
-    enteredNumber === 0
+    !enteredNumber
   ) {
     return;
   }
