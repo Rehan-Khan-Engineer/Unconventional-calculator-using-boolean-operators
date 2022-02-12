@@ -2,7 +2,7 @@ let defaultResult = 0;
 
 let currentResult = defaultResult;
 
-let entries = [];
+const entries = [];
 
 function getUserInput() {
   return parseInt(userInput.value);
